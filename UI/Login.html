@@ -14,21 +14,21 @@
        <header>
            <nav>
                <div class="row">
-                   <a href="index.html"><img src="./images/logo-white.png" alt="Xpreschop logo" class="logo"></a>
+                  <a href="index.html"><img src="./images/logo-white.png" alt="Xpreschop logo" class="logo"></a>
                    <ul class="main-nav">
                        <li><a href="#section-steps">How it works</a></li>
-                       <li><a href="#login">Login</a></li>
+                       <!-- <li><a href="#login">Login</a></li> -->
                        <li><a href="#register">Sign Up</a></li>
                    </ul>
                </div>
            
                <div id="login" class="register-login">
-                <div class="login-area">
+                <div>
                       <form class="login-content" action="">
                          <a href="#close" title="Close" class="close">X</a>
                     
                            <div class="imgcontainer">
-                            <img src="./images/betachop.png" class="avatar">
+                            <img src="./Images/betachop.png" class="avatar">
                         </div>
           
                         <div class="container">
@@ -38,15 +38,15 @@
                             <label for="psw"><b>Password</b></label>
                             <input type="password" placeholder="Enter Password" name="psw" required>
           
-                            <a class="btn btn-ghost" href="Login.html">Login</a>
+                            <button id="login" type="submit">Login</button>
           
-                            <label class="remember">
+                            <label>
                                 <input type="checkbox" checked="checked" name="remember"> Remember Me
                             </label>
                         </div>
           
                         <div class="container">
-                          <a class="btn btn-full" href="#close">Cancel</a>
+                          <button class="cancelbtn" type="button">Cancel</button>
                           <span class="psw">Forgot <a href="#">password?</a></span>
                       </div>
                     </form>
@@ -81,71 +81,71 @@
           
                             <a class="btn btn-ghost" href="Login.html">REGISTER</a>
           
-                            <label class="remember">
+                            <label>
                                 <input type="checkbox" checked="checked" name="remember"> Remember Me
                             </label>
                         </div>
-
-                        
           
                         <div class="container">
-                          <a class="btn btn-full" href="#close">Cancel</a>
+                            <a class="btn btn-full" href="#close">Cancel</a>
                           <span class="psw">Forgot <a href="#">password?</a></span>
                       </div>
                     </form>
                     
                 </div>
+
+
               </div>
+              
+              <div id="regAdmin" class="register-admin">
+                <div>
+                      <form class="login-content" action="">
+                         <a href="#close" title="Close" class="close">X</a>
+                    
+                           <div class="imgcontainer">
+                            <img src="./images/betachop.png" class="avatar">
+                            
+                        </div>
+          
+                        <div class="container">
+                            <label for="uname"><b>First Name</b></label>
+                            <input type="text" placeholder="Your First Name" name="fname" required>
+    
+                            <label for="uname"><b>Last Name</b></label>
+                            <input type="text" placeholder="Your Last Name" name="lname" required>
+    
+                            <label for="email"><b>Email</b></label>
+                            <input type="text" placeholder="Email: name@example.com" name="newemail" required>
+          
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" placeholder=" Password" name="newpsw" required>
+                            
+                            <label for="psw"><b>Confirm Password</b></label>
+                            <input type="password" placeholder="Confirm Password" name="newpsw" required>
+    
+                            <label for="bname"><b>Restaurants Name</b></label>
+                            <input type="text" placeholder="Business Name" name="bname" required>
+    
+          
+                            <a href="Admin-Page.html" class="btn btn-ghost" >REGISTER</a>
+          
+                            <label class="remember">
+                                <input type="checkbox" checked="checked" name="remember"> Remember Me
+                            </label>
+                            <div class="container">
+                                <a class="btn btn-full" href="#close">Cancel</a>
+                                <span class="psw">ALREADY HAVE <a href="index.html">AN ACCOUNT?</a></span>
+                            </div>
+                        </div>
     
 
            </nav>
             <div class="hero-text-box">
-                <h1>XpresChop.com</h1>
+                <h1>Hello there, Welcome To XpresChop</h1>
                 <a class="btn btn-full" href="#regAdmin">Sign Up As a Caterer</a>
                 <!-- <a class="btn btn-ghost" href="#">Sign Up As a Caterer</a> -->
            
            </div> 
-
-           <div id="regAdmin" class="register-admin">
-            <div>
-                  <form class="login-content" action="">
-                     <a href="#close" title="Close" class="close">X</a>
-                
-                       <div class="imgcontainer">
-                        <img src="./images/betachop.png" class="avatar">
-                        
-                    </div>
-      
-                    <div class="container">
-                        <label for="uname"><b>First Name</b></label>
-                        <input type="text" placeholder="Your First Name" name="fname" required>
-
-                        <label for="uname"><b>Last Name</b></label>
-                        <input type="text" placeholder="Your Last Name" name="lname" required>
-
-                        <label for="email"><b>Email</b></label>
-                        <input type="text" placeholder="Email: name@example.com" name="newemail" required>
-      
-                        <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder=" Password" name="newpsw" required>
-                        
-                        <label for="psw"><b>Confirm Password</b></label>
-                        <input type="password" placeholder="Confirm Password" name="newpsw" required>
-
-                        <label for="bname"><b>Restaurants Name</b></label>
-                        <input type="text" placeholder="Business Name" name="bname" required>
-
-      
-                        <a href="Admin-Page.html" class="btn btn-ghost" >REGISTER</a>
-      
-                        <label class="remember">
-                            <input type="checkbox" checked="checked" name="remember"> Remember Me
-                        </label>
-                        <div class="container">
-                            <a class="btn btn-full" href="#close">Cancel</a>
-                            <span class="psw">ALREADY HAVE <a href="#">AN ACCOUNT?</a></span>
-                        </div>
-                    </div>
         
        </header>
         

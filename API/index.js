@@ -1,4 +1,4 @@
-const express = require ('express');
+import express from 'express';
 
 
 
@@ -6,10 +6,10 @@ const express = require ('express');
 const app = express();
 const PORT = 4001;
 
-app.get('/', function(){
-    return res.send
-})
+app.get('/', (req, res) => {
+    return res.send('The API is working');
+});
 
 app.listen(PORT, function(){
     console.log('server is running on port' + PORT);
-})
+});

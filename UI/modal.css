@@ -1,0 +1,210 @@
+
+.register-login {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+    z-index: 1;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    
+
+}
+.register-login:target {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+}
+.register-login > div {
+    width: 30%;
+    height: auto;
+    position: relative;
+    margin: 10% auto 15% auto;
+    padding: 5px 20px 13px 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    background-color: #999;
+/*
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+*/
+}
+.close {
+    background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+
+}
+.close:hover { 
+    background: #00d9ff;
+}
+
+.login-content {
+    width: 100%;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+.avatar {
+    width: 20%;
+    border-radius: 50%;
+}
+
+.container{
+    padding: 16px;
+}
+span.psw {
+    float: right;
+    margin-right: 3%;
+    padding-top: 16px;
+/*    color: #292727;*/
+}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #888;
+/*  box-sizing: border-box;*/
+  border-radius: 5px;
+}
+
+.remember {
+    float: right;
+    font-weight: 400;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+/*
+.cancelbtn {
+    width: auto;
+    margin-left: 3%; 
+    padding: 10px 18px;
+    background: #f44336;
+    border: 1px solid #e67e22;
+    color: #e67e22;
+}
+*/
+.loginfoot {
+   background-color: #606061;
+}
+
+.register-signup {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin-top: -50px;
+    background: transparent;
+    z-index: 1;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+
+}
+.register-signup:target {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+}
+.register-signup > div {
+    
+    width: 40%;
+/*    height: auto;*/
+    position: relative;
+    margin: auto auto 10px auto;
+    margin-top: 5%;
+/*    margin-bottom: auto;*/
+    border: 1px solid #888;
+    border-radius: 10px; 
+    background: #999;
+}
+
+.register-admin {
+    
+     position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: -5% auto;
+    background: transparent;
+    z-index: 1;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+
+    
+}
+
+.register-admin:target {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.register-admin > div {
+    
+    width: 40%;
+/*    height: auto;*/
+    position: relative;
+    margin: auto auto 10px auto;
+    margin-top: 5%;
+/*    margin-bottom: auto;*/
+    border: 1px solid #888;
+    border-radius: 10px; 
+    background: #999;
+}
+
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+        margin-bottom: 5%;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}

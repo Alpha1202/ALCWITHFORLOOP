@@ -1,1 +1,1 @@
-This directory is for the API's that will be created , and its on a new branch of name "API"
+This directory is for the API's that will be created.

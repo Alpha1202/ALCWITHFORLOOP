@@ -1,15 +1,8 @@
 import express from 'express';
-
-
-
+import bodyParser from 'body-parser';
 
 const app = express();
-const PORT = 4001;
+app.use(bodyParser.urlencoded({ extended: true }));
+app.get('/', (req, res) => res.status(200).send({ message: 'Server is running' }));
 
-app.get('/', (req, res) => {
-    return res.send('The API is working');
-});
-
-app.listen(PORT, function(){
-    console.log('server is running on port' + PORT);
-});
+export default app;

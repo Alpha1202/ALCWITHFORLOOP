@@ -9,7 +9,7 @@ export default class MealsController {
   * @return {object} all meals
   */
   static getAllMeals(req, res) {
-    const meals = meal.getMeals();
+    const meals = meal.getAmeal();
     if (meals === undefined || meals.length === 0) {
       return res.status(204).send({ message: 'No Meals' });
     }

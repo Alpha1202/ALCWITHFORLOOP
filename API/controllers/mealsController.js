@@ -9,7 +9,7 @@ export default class MealsController {
   * @return {object} all meals
   */
   static getAllMeals(req, res) {
-    const meals = meal.getAmeal();
+    const meals = meal.getMeals();
     if (meals === undefined || meals.length === 0) {
       return res.status(204).send({ message: 'No Meals' });
     }
@@ -44,13 +44,13 @@ export default class MealsController {
     * @return {object} updated meal
     */
   static updateMeal(req, res) {
-    const meals = meal.getAmeal(req.params.id);
-    // const upmeal = meals.find(ameal => ameal.id === req.param.id);
-    if (!meals) {
+    const meals = meal.getAmeal(req.param.id);
+    const upmeal = meals.find(ameal => ameal.id === req.param.id);
+    if (upmeal) {
       return res.status(404).send({ message: 'Meal Not Found' });
     }
-    const updatedMeal = meal.createMeal(req.params.id, req.body);
-    return res.status(200).json(updatedMeal);
+    const updatedMeal = meal.updateMeal(req.params.id, req.body);
+    return res.status(200).send(updatedMeal);
   }
 
   /**

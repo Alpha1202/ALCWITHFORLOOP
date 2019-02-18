@@ -7,6 +7,7 @@ import OrdersController from './controllers/OrderControllers';
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => res.status(200).send({ message: 'Server is running' }));
@@ -18,6 +19,6 @@ app.post('/api/v1/menu', MenuController.createMenu);
 app.get('/api/v1/menu', MenuController.getMenu);
 app.post('/api/v1/orders', OrdersController.createOrder);
 app.put('/api/v1/orders/:id', OrdersController.updateOrder);
-app.get('/api/v1/orders', OrdersController.getAllOrder);
+app.get('/api/v1/orders', OrdersController.getAllOrders);
 
 export default app;

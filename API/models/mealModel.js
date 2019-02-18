@@ -35,8 +35,12 @@ export default class MealsModel {
   }
 
   getAmeal(id) {
-    const ameal = this.meals.find(meal => meal.id === id);
-    return ameal;
+    return this.meals.map((meal) => {
+      if (meal.id === id) {
+        return meal;
+      }
+      return meal;
+    });
   }
 
   updateMeal(id, mealData) {
@@ -52,10 +56,11 @@ export default class MealsModel {
   deleteMeal(id) {
     this.meals.map((meal) => {
       if (meal.id === id) {
-        const ameal = this.editMeal(id);
-        const mealIndex = this.meals.indexOf(ameal);
+        const meal = this.getAmeal(id);
+        const mealIndex = this.meals.indexOf(meal);
         this.meals.splice(mealIndex, 1);
       }
+      return meal;
     });
   }
 }

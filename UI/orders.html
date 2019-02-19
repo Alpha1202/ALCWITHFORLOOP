@@ -18,84 +18,10 @@
                    <ul class="main-nav">
                        <li><a href="#section-steps">How it works</a></li>
                        <!-- <li><a href="#login">Login</a></li> -->
-                       <li><a href="#register">Sign Up</a></li>
+                       <li><a href="index.html">Log Out</a></li>
                    </ul>
                </div>
-           
-               <div id="login" class="register-login">
-                <div>
-                      <form class="login-content" action="">
-                         <a href="#close" title="Close" class="close">X</a>
-                    
-                           <div class="imgcontainer">
-                            <img src="./Images/betachop.png" class="avatar">
-                        </div>
-          
-                        <div class="container">
-                            <label for="uname"><b>Username</b></label>
-                            <input type="text" placeholder="Enter Username" name="uname" required>
-          
-                            <label for="psw"><b>Password</b></label>
-                            <input type="password" placeholder="Enter Password" name="psw" required>
-          
-                            <button id="login" type="submit">Login</button>
-          
-                            <label>
-                                <input type="checkbox" checked="checked" name="remember"> Remember Me
-                            </label>
-                        </div>
-          
-                        <div class="container">
-                          <button class="cancelbtn" type="button">Cancel</button>
-                          <span class="psw">Forgot <a href="#">password?</a></span>
-                      </div>
-                    </form>
-                    
-                </div>
-              </div>
-
-              <div id="register" class="register-signup">
-                <div>
-                      <form class="login-content" action="">
-                         <a href="#close" title="Close" class="close">X</a>
-                    
-                           <div class="imgcontainer">
-                            <img src="./images/betachop.png" class="avatar">
-                        </div>
-          
-                        <div class="container">
-                            <label for="uname"><b>First Name</b></label>
-                            <input type="text" placeholder="Your First Name" name="fname" required>
-
-                            <label for="uname"><b>Last Name</b></label>
-                            <input type="text" placeholder="Your Last Name" name="lname" required>
-
-                            <label for="uname"><b>Username</b></label>
-                            <input type="text" placeholder="Enter a Username" name="newUsername" required>
-          
-                            <label for="psw"><b>New Password</b></label>
-                            <input type="password" placeholder="Enter a Password" name="newpsw" required>
-                            
-                            <label for="psw"><b>Confirm Password</b></label>
-                            <input type="password" placeholder="Confirm Password" name="newpsw" required>
-          
-                            <a class="btn btn-ghost" href="Login.html">REGISTER</a>
-          
-                            <label>
-                                <input type="checkbox" checked="checked" name="remember"> Remember Me
-                            </label>
-                        </div>
-          
-                        <div class="container">
-                            <a class="btn btn-full" href="#close">Cancel</a>
-                          <span class="psw">Forgot <a href="#">password?</a></span>
-                      </div>
-                    </form>
-                    
-                </div>
-
-
-              </div>
+        
               
               <div id="regAdmin" class="register-admin">
                 <div>
@@ -142,7 +68,8 @@
            </nav>
             <div class="hero-text-box">
                 <h1>Hello there, Welcome To XpresChop</h1>
-                <a class="btn btn-full" href="#regAdmin">Sign Up As a Caterer</a>
+                <a class="btn btn-full" href="#regAdmin">Sign Up As a Caterer</a> 
+                <a class="btn btn-full" href="#meals">Place A Quick Order</a>
                 <!-- <a class="btn btn-ghost" href="#">Sign Up As a Caterer</a> -->
            
            </div> 
@@ -240,49 +167,13 @@
               
             </ul>
         </section>
-
-        <section class="section-features">
-            <div class="row">
-               
-                <h2>XpresChop &mdash; XpresOrder</h2>
-                <p class="long-copy">Hello, with XpresChop.com, you can order for your delicacious meals with just a click. We know you’re always busy. So let us take save your the stress of waiting, we’re really good at it, we promise!</p>
-            </div>
-            
-            <div class="row">
-                <div class="col span-1-of-4 box">
-                     <i class="ion-ios-infinite-outline icon-big"></i>
-                  <h3>Availablity</h3>
-                  <p>You can count on us for 24/7 round the clock availablity. You can always make an order to your choiced restaurants online.</p>    
-                </div>
-                
-                <div class="col span-1-of-4 box">
-                     <i class="ion-ios-stopwatch-outline icon-big"></i>
-                  <h3>Convenience</h3>        
-                  <p>You're only a click  away from your delicious and super healthy meals. You can place an order from anywhere, for as much as you want.</p>    
-                </div>
-                
-                <div class="col span-1-of-4 box">
-                     <i class="ion-ios-nutrition-outline icon-big"></i>
-                  <h3>Varieties</h3>
-                  <p>When you dont know what to eat, just check out our featured meals of the day and get those appetite wet.You always get alot of meal options displayed XpresChop.com which you can choose from. We give you so mamy options to chose from.</p>    
-                </div>
-                <div class="col span-1-of-4 box">
-                     <i class="ion-ios-cart-outline icon-big"></i>
-                  <h3>Order anything</h3>
-                  <p>We don't limit your creativity, which means you can order whatever you feel like. You can also choose from our menu containing over 100 delicious meals. It's up to you.</p>    
-                </div>
-            
-            </div>
-                 
         
-        </section>
-        
-        <section class="featured-restaurants">
+        <section id="meals" class="featured-restaurants">
             <div class="row">
-                <h2>Featured Restaurants</h2>
+                <h2>FIND. CHOOSE. ORDER.</h2>
             </div>
             <div class="row">
-                <div class="col span-1-of-4 box">
+                <div class="col span-1-of-6 box">
                     <img src="./images/foodiesfeed.com_beet-root-soup-borscht-with-bread.jpg" alt="com_beet-root-soup-borscht-with-bread">
                     <h3>Soup</h3>
                     <div class="city-feature">
@@ -299,7 +190,8 @@
                     <i class="ion-social-twitter icon-small"></i>
                         <a href="#" >Place an Order</a>
                     </div>
-                </div><div class="col span-1-of-4 box">
+                </div>
+                <div class="col span-1-of-6 box">
                     <img src="./images/foodiesfeed.com_healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg" alt="Green Bean">
                     <h3>Green Bean</h3>
                     <div class="city-feature">
@@ -318,7 +210,7 @@
                     </div>
                 </div>
                 
-                <div class="col span-1-of-4 box">
+                <div class="col span-1-of-6 box">
                     <img src="./images/foodiesfeed.com_toast-with-white-wine.jpg" alt="white wine">
                     <h3>White Wine</h3>
                     <div class="city-feature">
@@ -337,7 +229,160 @@
                     </div>
                 </div>
                 
-                <div class="col span-1-of-4 box">
+                <div class="col span-1-of-6 box">
+                    <img src="./images/hero.jpg" alt="vegetables">
+                    <h3>vegetables</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    vegetables with steak,a perfect blend of highly balanced meal.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $18
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div> 
+                <div class="col span-1-of-6 box">
+                    <img src="./images/hero.jpg" alt="vegetables">
+                    <h3>vegetables</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    vegetables with steak,a perfect blend of highly balanced meal.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $18
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>  
+                <div class="col span-1-of-6 box">
+                    <img src="./images/hero.jpg" alt="vegetables">
+                    <h3>vegetables</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    vegetables with steak,a perfect blend of highly balanced meal.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $18
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div> 
+<!--
+               
+-->
+            
+            </div>
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="col span-1-of-6 box">
+                    <img src="./images/foodiesfeed.com_beet-root-soup-borscht-with-bread.jpg" alt="com_beet-root-soup-borscht-with-bread">
+                    <h3>Soup</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                     Beet-root-soup is best served hot. it is a spicy , healthy and delicious meel
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $20
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                        <a href="#" >Place an Order</a>
+                    </div>
+                </div><div class="col span-1-of-6 box">
+                    <img src="./images/foodiesfeed.com_healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg" alt="Green Bean">
+                    <h3>Green Bean</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    A highly nutritious meal for vegetarian. packed with good nutrients.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                    $15
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                
+                <div class="col span-1-of-6 box">
+                    <img src="./images/foodiesfeed.com_toast-with-white-wine.jpg" alt="white wine">
+                    <h3>White Wine</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    A soothing, thirst-quenching satisfying drink that nourishes the skin and relaxes the nerves
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $25
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                
+                <div class="col span-1-of-6 box">
+                    <img src="./images/hero.jpg" alt="vegetables">
+                    <h3>vegetables</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    vegetables with steak,a perfect blend of highly balanced meal.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $18
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                <div class="col span-1-of-6 box">
+                    <img src="./images/hero.jpg" alt="vegetables">
+                    <h3>vegetables</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    vegetables with steak,a perfect blend of highly balanced meal.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $18
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                <div class="col span-1-of-6 box">
                     <img src="./images/hero.jpg" alt="vegetables">
                     <h3>vegetables</h3>
                     <div class="city-feature">
@@ -357,14 +402,11 @@
                 </div>
             
             </div>
-        </section>
-        
-        <section class="featured-meals">
-            <div class="row">
-                <h2>Featured Meals</h2>
             </div>
             <div class="row">
-                <div class="col span-1-of-4 box">
+            </div>
+            <div class="row">
+                <div class="col span-1-of-6 box">
                     <img src="./images/foodiesfeed.com_beet-root-soup-borscht-with-bread.jpg" alt="com_beet-root-soup-borscht-with-bread">
                     <h3>Soup</h3>
                     <div class="city-feature">
@@ -381,7 +423,7 @@
                     <i class="ion-social-twitter icon-small"></i>
                         <a href="#" >Place an Order</a>
                     </div>
-                </div><div class="col span-1-of-4 box">
+                </div><div class="col span-1-of-6 box">
                     <img src="./images/foodiesfeed.com_healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg" alt="Green Bean">
                     <h3>Green Bean</h3>
                     <div class="city-feature">
@@ -400,7 +442,7 @@
                     </div>
                 </div>
                 
-                <div class="col span-1-of-4 box">
+                <div class="col span-1-of-6 box">
                     <img src="./images/foodiesfeed.com_toast-with-white-wine.jpg" alt="white wine">
                     <h3>White Wine</h3>
                     <div class="city-feature">
@@ -419,7 +461,273 @@
                     </div>
                 </div>
                 
-                <div class="col span-1-of-4 box">
+                <div class="col span-1-of-6 box">
+                    <img src="./images/hero.jpg" alt="vegetables">
+                    <h3>vegetables</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    vegetables with steak,a perfect blend of highly balanced meal.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $18
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                <div class="col span-1-of-6 box">
+                    <img src="./images/hero.jpg" alt="vegetables">
+                    <h3>vegetables</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    vegetables with steak,a perfect blend of highly balanced meal.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $18
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                <div class="col span-1-of-6 box">
+                    <img src="./images/hero.jpg" alt="vegetables">
+                    <h3>vegetables</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    vegetables with steak,a perfect blend of highly balanced meal.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $18
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+            
+            </div>
+            </div>
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="col span-1-of-6 box">
+                    <img src="./images/foodiesfeed.com_beet-root-soup-borscht-with-bread.jpg" alt="com_beet-root-soup-borscht-with-bread">
+                    <h3>Soup</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                     Beet-root-soup is best served hot. it is a spicy , healthy and delicious meel
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $20
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                        <a href="#" >Place an Order</a>
+                    </div>
+                </div><div class="col span-1-of-6 box">
+                    <img src="./images/foodiesfeed.com_healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg" alt="Green Bean">
+                    <h3>Green Bean</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    A highly nutritious meal for vegetarian. packed with good nutrients.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                    $15
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                
+                <div class="col span-1-of-6 box">
+                    <img src="./images/foodiesfeed.com_toast-with-white-wine.jpg" alt="white wine">
+                    <h3>White Wine</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    A soothing, thirst-quenching satisfying drink that nourishes the skin and relaxes the nerves
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $25
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                
+                <div class="col span-1-of-6 box">
+                    <img src="./images/hero.jpg" alt="vegetables">
+                    <h3>vegetables</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    vegetables with steak,a perfect blend of highly balanced meal.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $18
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                <div class="col span-1-of-6 box">
+                    <img src="./images/hero.jpg" alt="vegetables">
+                    <h3>vegetables</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    vegetables with steak,a perfect blend of highly balanced meal.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $18
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                <div class="col span-1-of-6 box">
+                    <img src="./images/hero.jpg" alt="vegetables">
+                    <h3>vegetables</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    vegetables with steak,a perfect blend of highly balanced meal.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $18
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="row">
+<!--                <h2>Featured Meals</h2>-->
+            </div>
+            <div class="row">
+                <div class="col span-1-of-6 box">
+                    <img src="./images/foodiesfeed.com_beet-root-soup-borscht-with-bread.jpg" alt="com_beet-root-soup-borscht-with-bread">
+                    <h3>Soup</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                     Beet-root-soup is best served hot. it is a spicy , healthy and delicious meel
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $20
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                        <a href="#" >Place an Order</a>
+                    </div>
+                </div><div class="col span-1-of-6 box">
+                    <img src="./images/foodiesfeed.com_healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg" alt="Green Bean">
+                    <h3>Green Bean</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    A highly nutritious meal for vegetarian. packed with good nutrients.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                    $15
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                
+                <div class="col span-1-of-6 box">
+                    <img src="./images/foodiesfeed.com_toast-with-white-wine.jpg" alt="white wine">
+                    <h3>White Wine</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    A soothing, thirst-quenching satisfying drink that nourishes the skin and relaxes the nerves
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $25
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                
+                <div class="col span-1-of-6 box">
+                    <img src="./images/hero.jpg" alt="vegetables">
+                    <h3>vegetables</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    vegetables with steak,a perfect blend of highly balanced meal.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $18
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                <div class="col span-1-of-6 box">
+                    <img src="./images/hero.jpg" alt="vegetables">
+                    <h3>vegetables</h3>
+                    <div class="city-feature">
+                    <i class="ion-ios-person icon-small"></i>
+                    vegetables with steak,a perfect blend of highly balanced meal.
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-ios-star icon-small"></i>
+                     $18
+                    </div>
+                    
+                    <div class="city-feature">
+                    <i class="ion-social-twitter icon-small"></i>
+                    <a href="#">Place an Order</a>
+                    </div>
+                </div>
+                <div class="col span-1-of-6 box">
                     <img src="./images/hero.jpg" alt="vegetables">
                     <h3>vegetables</h3>
                     <div class="city-feature">

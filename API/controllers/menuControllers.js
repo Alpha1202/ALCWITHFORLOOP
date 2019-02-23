@@ -1,4 +1,16 @@
+import Joi from 'joi';
 import MenusModel from '../models/menuModel';
+
+function validateMenu(menu) {
+  const schema = {
+    name: Joi.string().min(2).required(),
+    Description: Joi.string().min(5).required(),
+    price: Joi.number().required().required(),
+    quantity: Joi.string().required(),
+  };
+
+  return Joi.validate(menu, schema);
+}
 
 const menu = new MenusModel();
 export default class MenuController {
@@ -8,7 +20,7 @@ export default class MenuController {
   * @param {object} res
   * @return {object} menu
   */
-  static getMenu(req, res) {
+  static getAllMenu(req, res) {
     const amenu = menu.getMenu();
     if (amenu === undefined || amenu.length === 0) {
       return res.status(204).send({ message: 'No Menu for today' });
@@ -23,18 +35,15 @@ export default class MenuController {
    * @return {object} created menu || all inputs are required
    */
   static createMenu(req, res) {
-    if (!req.body.id && !req.body.name && !req.body.price && !req.body.quantity) {
-      return res.status(404).send({ message: 'All inputs are required' });
-    } if (!req.body.id || !req.body.name || !req.body.price || !req.body.quantity) {
-      return res.status(404).send({ message: 'All inputs are required' });
-    }
+    const { error } = validateMenu(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+
     const newmenu = menu.createMenu(req.body);
-    newmenu.id = req.body.id;
     newmenu.name = req.body.name.trim();
+    newmenu.Description = req.body.Description;
     newmenu.price = req.body.price;
     newmenu.quantity = req.body.quantity;
 
     return res.status(201).send(newmenu);
   }
-
 }

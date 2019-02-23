@@ -2,19 +2,13 @@ export default class MealsModel {
   constructor() {
     this.meals = [
       {
-        id: 1, name: 'Rice', price: 30, quantity: 300,
+        id: 1, name: 'Beans', Description: 'lorem ipsum', price: 300, quantity: 'large',
       },
       {
-        id: 2, name: 'Beans', price: 30, quantity: 300,
+        id: 2, name: 'Rice', Description: 'lorem ipsum', price: 300, quantity: 'large',
       },
       {
-        id: 3, name: 'Plantain', price: 30, quantity: 300,
-      },
-      {
-        id: 4, name: 'Eba', price: 30, quantity: 300,
-      },
-      {
-        id: 5, name: 'Stew', price: 30, quantity: 300,
+        id: 3, name: 'Yam', Description: 'lorem ipsum', price: 300, quantity: 'large',
       },
     ];
   }
@@ -25,8 +19,9 @@ export default class MealsModel {
 
   createMeal(mealData) {
     const meal = {
-      id: mealData.id,
+      id: this.meals.length + 1,
       name: mealData.name,
+      Description: mealData.Description,
       price: mealData.price,
       quantity: mealData.quantity,
     };
@@ -34,33 +29,21 @@ export default class MealsModel {
     return meal;
   }
 
-  getAmeal(id) {
-    return this.meals.map((meal) => {
-      if (meal.id === id) {
-        return meal;
-      }
-      return meal;
-    });
-  }
-
   updateMeal(id, mealData) {
-    const meal = this.meals.getAmeal(id);
-    const mealIndex = this.meals.indexOf(meal);
-    this.meals[mealIndex].id = mealData.id || meal.id;
-    this.meals[mealIndex].name = mealData.name || meal.name;
-    this.meals[mealIndex].price = mealData.price || meal.price;
-    this.meals[mealIndex].quantity = mealData.quantity || meal.quantity;
-    return this.meals[mealIndex];
+    const meal = this.meals.find(ameal => ameal.id === id);
+    meal.id = this.meals.length + 1;
+    meal.name = mealData.name || meal.name;
+    meal.Description = mealData.Description || meal.Description;
+    meal.price = mealData.price || meal.price;
+    meal.quantity = mealData.quantity || meal.quantity;
+    return meal;
   }
 
   deleteMeal(id) {
-    this.meals.map((meal) => {
-      if (meal.id === id) {
-        const meal = this.getAmeal(id);
-        const mealIndex = this.meals.indexOf(meal);
-        this.meals.splice(mealIndex, 1);
-      }
-      return meal;
-    });
+    const meal = this.meals.find(ameal => ameal.id === id);
+
+    const mealIndex = this.meals.indexOf(meal);
+    this.meals.splice(mealIndex, 1);
+    return meal;
   }
 }

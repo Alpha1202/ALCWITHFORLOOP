@@ -2,19 +2,13 @@ export default class OrdersModel {
   constructor() {
     this.order = [
       {
-        id: 1, name: 'Rice', price: 30, quantity: 300,
+        id: 1, name: 'Beans', Description: 'lorem ipsum', price: 300, quantity: 'large',
       },
       {
-        id: 2, name: 'Beans', price: 30, quantity: 300,
+        id: 2, name: 'Rice', Description: 'lorem ipsum', price: 300, quantity: 'large',
       },
       {
-        id: 3, name: 'Plantain', price: 30, quantity: 300,
-      },
-      {
-        id: 4, name: 'Eba', price: 30, quantity: 300,
-      },
-      {
-        id: 5, name: 'Stew', price: 30, quantity: 300,
+        id: 3, name: 'Yam', Description: 'lorem ipsum', price: 300, quantity: 'large',
       },
     ];
   }
@@ -25,8 +19,9 @@ export default class OrdersModel {
 
   createOrder(OrderData) {
     const order = {
-      id: OrderData.id,
+      id: this.order.length + 1,
       name: OrderData.name,
+      Description: OrderData.Description,
       price: OrderData.price,
       quantity: OrderData.quantity,
     };
@@ -40,23 +35,19 @@ export default class OrdersModel {
   }
 
   updateOrder(id, orderData) {
-    const order = this.order.getAnOrder(id);
-    const orderIndex = this.order.indexOf(order);
-    this.order[orderIndex].id = orderData.id || order.id;
-    this.order[orderIndex].name = orderData.name || order.name;
-    this.order[orderIndex].price = orderData.price || order.price;
-    this.order[orderIndex].quantity = orderData.quantity || order.quantity;
-    return this.order[orderIndex];
+    const order = this.order.find(anorder => anorder.id === id);
+    order.id = this.order.length + 1;
+    order.name = orderData.name || order.name;
+    order.price = orderData.price || order.price;
+    order.quantity = orderData.quantity || order.quantity;
+    return order;
   }
 
   deleteOrder(id) {
-    this.order.map((order) => {
-      if (order.id === id) {
-        const anOrder = this.editOrder(id);
-        const orderIndex = this.order.indexOf(anOrder);
-        this.order.splice(orderIndex, 1);
-      }
-    });
+    const order = this.order.find(anorder => anorder.id === id);
+
+    const orderIndex = this.order.indexOf(order);
+    this.order.splice(orderIndex, 1);
+    return order;
   }
 }
-

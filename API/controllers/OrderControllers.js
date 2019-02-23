@@ -1,4 +1,16 @@
+import Joi from 'joi';
 import OrdersModel from '../models/OrderModel';
+
+function validateOrder(order) {
+  const schema = {
+    name: Joi.string().min(2).required(),
+    Description: Joi.string().min(5).required(),
+    price: Joi.number().required().required(),
+    quantity: Joi.string().required(),
+  };
+
+  return Joi.validate(order, schema);
+}
 
 const order = new OrdersModel();
 export default class OrdersController {
@@ -9,7 +21,7 @@ export default class OrdersController {
   * @return {object} all orders
   */
   static getAllOrders(req, res) {
-    const orders = order.getAnOrder();
+    const orders = order.getOrders();
     if (orders === undefined || orders.length === 0) {
       return res.status(204).send({ message: 'No Orders' });
     }
@@ -23,14 +35,12 @@ export default class OrdersController {
    * @return {object} created order || all inputs are required
    */
   static createOrder(req, res) {
-    if (!req.body.id && !req.body.name && !req.body.price && !req.body.quantity) {
-      return res.status(404).send({ message: 'All inputs are required' });
-    } if (!req.body.id || !req.body.name || !req.body.price || !req.body.quantity) {
-      return res.status(404).send({ message: 'All inputs are required' });
-    }
+    const { error } = validateOrder(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+
     const neworder = order.createOrder(req.body);
-    neworder.id = req.body.id;
     neworder.name = req.body.name.trim();
+    neworder.Description = req.body.Description;
     neworder.price = req.body.price;
     neworder.quantity = req.body.quantity;
 
@@ -44,13 +54,16 @@ export default class OrdersController {
     * @return {object} updated order
     */
   static updateOrder(req, res) {
-    const orders = order.getAnOrder(req.params.id);
-    // const upOrder = order.find(anOrder => anOrder.id === req.param.id);
-    if (!orders) {
-      return res.status(404).send({ message: 'Order Not Found' });
-    }
-    const updateOrder = order.createOrder(req.params.id, req.body);
-    return res.status(200).json(updateOrder);
+    const orders = order.getOrders();
+    const upOrder = orders.find(anOrder => anOrder.id === parseInt(req.params.id));
+    if (!upOrder) return res.status(404).send({ message: 'Order Not Found' });
+    const { error } = validateOrder(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+    upOrder.name = req.body.name;
+    upOrder.Description = req.body.Description;
+    upOrder.price = req.body.price;
+    upOrder.quantity = req.body.quantity;
+    return res.status(200).json(upOrder);
   }
 
   /**
@@ -60,11 +73,12 @@ export default class OrdersController {
     * @return {object} deleted order || order not found
     */
   static deleteOrder(req, res) {
-    const orders = order.deleteOrder(req.params.id);
-    if (!orders) {
-      return res.status(404).send({ message: 'Order Not found' });
-    }
-    const deleted = order.deleteOrder(req.param.id);
-    return res.status(204).send(deleted);
+    const orders = order.getOrders();
+    const neworder = orders.find(someorder => someorder.id === parseInt(req.params.id));
+    if (!neworder) res.status(404).send({ message: 'Order Not found' });
+
+    const OrderIndex = orders.indexOf(neworder);
+    orders.splice(OrderIndex, 1);
+    return res.status(204).send(neworder);
   }
 }

@@ -1,4 +1,17 @@
+import Joi from 'joi';
 import MealsModel from '../models/mealModel';
+
+function validateMeal(meal) {
+  const schema = {
+    name: Joi.string().min(2).required(),
+    Description: Joi.string().min(5).required(),
+    price: Joi.number().required(),
+    quantity: Joi.string().required(),
+  };
+
+  return Joi.validate(meal, schema);
+}
+
 
 const meal = new MealsModel();
 export default class MealsController {
@@ -23,18 +36,23 @@ export default class MealsController {
    * @return {object} created meal || all inputs are required
    */
   static createMeal(req, res) {
-    if (!req.body.id && !req.body.name && !req.body.price && !req.body.quantity) {
-      return res.status(404).send({ message: 'All inputs are required' });
-    } if (!req.body.id || !req.body.name || !req.body.price || !req.body.quantity) {
-      return res.status(404).send({ message: 'All inputs are required' });
-    }
+    const { error } = validateMeal(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+
     const newmeal = meal.createMeal(req.body);
-    newmeal.id = req.body.id;
     newmeal.name = req.body.name.trim();
+    newmeal.Description = req.body.Description;
     newmeal.price = req.body.price;
     newmeal.quantity = req.body.quantity;
 
     return res.status(201).send(newmeal);
+  }
+
+  static getAmeal(req, res) {
+    const meals = meal.getMeals();
+    const newmeal = meals.find(ameal => ameal.id === parseInt(req.params.id));
+    if (!newmeal) return res.status(404).send({ message: 'Meal Not Found' });
+    res.status(200).send(newmeal);
   }
 
   /**
@@ -44,13 +62,16 @@ export default class MealsController {
     * @return {object} updated meal
     */
   static updateMeal(req, res) {
-    const meals = meal.getAmeal(req.param.id);
-    const upmeal = meals.find(ameal => ameal.id === req.param.id);
-    if (upmeal) {
-      return res.status(404).send({ message: 'Meal Not Found' });
-    }
-    const updatedMeal = meal.updateMeal(req.params.id, req.body);
-    return res.status(200).send(updatedMeal);
+    const meals = meal.getMeals();
+    const upmeal = meals.find(somemeal => somemeal.id === parseInt(req.params.id));
+    if (!upmeal) return res.status(404).send({ message: 'Meal Not Found' });
+    const { error } = validateMeal(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+    upmeal.name = req.body.name;
+    upmeal.Description = req.body.Description;
+    upmeal.price = req.body.price;
+    upmeal.quantity = req.body.quantity;
+    return res.status(200).send(upmeal);
   }
 
   /**
@@ -60,11 +81,12 @@ export default class MealsController {
     * @return {object} deleted meal || meal not found
     */
   static deleteMeal(req, res) {
-    const meals = meal.deleteMeal(req.params.id);
-    if (!meals) {
-      return res.status(404).send({ message: 'Meal Not found' });
-    }
-    const deleted = meal.deleteMeal(req.param.id);
-    return res.status(204).send(deleted);
+    const meals = meal.getMeals();
+    const newmeal = meals.find(somemeal => somemeal.id === parseInt(req.params.id));
+    if (!newmeal) return res.status(404).send({ message: 'Meal Not found' });
+
+    const mealIndex = meals.indexOf(newmeal);
+    meals.splice(mealIndex, 1);
+    return res.status(200).send(newmeal);
   }
 }

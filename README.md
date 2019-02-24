@@ -61,6 +61,6 @@ Run npm test in the terminal for the cloned folder.
 
 <h2>Author</h2> <hr>
 <ul>
- <li>Timilehin Olumofin</li>
+ <li>Nzubechukwu</li>
 </ul>
 

@@ -7,7 +7,7 @@
     "start": "node dist/index.js",
     "start:dev": "nodemon --exec babel-node ./api/server.js",
     "build": "babel server --out-dir dist",
-    "test": "mocha --compilers js:@babel/register --recursive api/test/*.spec.js"
+    "test": "mocha --compilers js:@babel/register --recursive API/test/*.spec.js"
   },
   "keywords": [],
   "author": "",

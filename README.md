@@ -4,37 +4,63 @@
 
 https://travis-ci.org/Alpha1202/meal-booking-app.svg?branch=develop
 
-<h2>Getting Started</h2>
+<h2>Getting Started</h2> <hr>
 
-Clone the Repo.
-git clone https://github.com/timzprof/book-a-meal.git
+<h2>Clone the Repo.</h2> <hr>
+git clone https://github.com/Alpha1202/meal-booking-app.git
 
-Prerequisites
+<h2>Prerequisites</h2> <hr>
+
 The following tools will be needed to run this application successfully:
+<ul>
+ <li>Node v10.15.0 or above</li>
+ <li>Npm v6.4 or above</li>
+</ul>
 
-Node v10.15.0 or above
-Npm v6.4 or above
-Endpoints
-GET api/v1/meals/ Caterers can get all meals options they uploaded
-POST api/v1/meals/ Catereres can add meal options linked to their account
-PUT api/vi/meals/:mealId Caterers can update their meal options
-DELETE api/v1/meals/:mealId Caterers can delete their meal options
-GET api/v1/menu/ Caterers and Users can Get the menu for the day
-POST api/v1/menu/ Caterers can Set a menu for the day
-GET api/v1/orders Get All Orders
-POST api/v1/orders Users can make orders
-PUT api/v1/orders/:orderId Users can modify their orders
-Installation
+
+<h2>Endpoints</h2> <hr>
+<ul>
+ <li>GET api/v1/meals/ Caterers can get all meals</li>
+ <li>POST api/v1/meals/ Caterers can add meals</li>
+ <li>PUT api/vi/meals/:mealId Caterers can update their meal options</li>
+ <li>DELETE api/v1/meals/:mealId Caterers can delete their meal options</li>
+ <li>GET api/v1/menu/ Caterers and Users can Get the menu for the day</li>
+ <li>POST api/v1/menu/ Caterers can Set a menu for the day</li>
+ <li>GET api/v1/orders Get All Orders</li>
+ <li>POST api/v1/orders Users can make orders</li>
+ <li>PUT api/v1/orders/:orderId Users can modify their orders</li>
+</ul>
+
+
+
+
+
+
+
+
+
+<h2>Installation</h2> <hr>
 On your Local Machine
+<ul>
+ <li>Pull the develop branch off this repository</li>
+ <li>Run npm install to install all dependencies</li>
+ <li>Run npm start to start the app</li>
+ <li>Access endpoints on localhost:3000</li>
+</ul>
 
-Pull the develop branch off this repository
-Run npm install to install all dependencies
-Run npm start to start the app
-Access endpoints on localhost:4000
-Running the tests
+
+
+
+<h2>Running the tests</h2> <hr>
 Run npm test in the terminal for the cloned folder.
 
-Built With
-Node.js - Runtime-Enviroment
-Authors
-Timilehin Olumofin
+<h2>Built With</h2> <hr>
+<ul>
+ <li>Node.js - Runtime-Enviroment</li>
+</ul>
+
+<h2>Author</h2> <hr>
+<ul>
+ <li>Timilehin Olumofin</li>
+</ul>
+

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./build/index.js",
+    "start": "node dist/server.js",
     "start:dev": "nodemon --exec babel-node ./api/server.js",
     "build": "babel -d ./dist ./API -s",
     "test": "nyc mocha --compilers js:@babel/register --recursive API/test/*.spec.js --exit",

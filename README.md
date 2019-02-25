@@ -63,4 +63,3 @@ Run npm test in the terminal for the cloned folder.
 <ul>
  <li>Nzubechukwu</li>
 </ul>
-

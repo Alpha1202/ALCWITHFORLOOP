@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/server.js",
-    "start:dev": "nodemon --exec babel-node ./api/server.js",
+    "start": "node dist/index.js",
+    "start:dev": "nodemon --exec babel-node ./API/server.js",
     "build": "babel -d ./dist ./API -s",
     "test": "nyc mocha --compilers js:@babel/register --recursive API/test/*.spec.js --exit",
     "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",

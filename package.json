@@ -10,7 +10,7 @@
     "test": "nyc mocha --compilers js:@babel/register --recursive API/test/*.spec.js --exit",
     "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
     "coveralls-coverage": "coveralls < lcov.info",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"  
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,11 @@
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "joi": "^14.3.1"
+    "joi": "^14.3.1",
+    "pg": "^7.8.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.43.0",
+    "sequelize-cli": "^5.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

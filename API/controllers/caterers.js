@@ -1,4 +1,4 @@
-import db from '../models';
+import db from '../../models';
 
 export default class CaterersController {
   /**
@@ -7,15 +7,31 @@ export default class CaterersController {
     * @param {object} res
     * @return {object} a new caterer
     */
-  static signup(req, res) {
-    db.Caterer.create({
-      name: req.body.name,
-      email: req.body.email,
-      phone: req.body.phone,
-      password: req.body.password,
-    }).then((outcome) => {
-      res.json(outcome);
-    });
+  static async signup(req, res) {
+    try {
+      const { name, email, phone, password } = req.body;
+      const Caterer = await db.caterer.create({
+        name,
+        email,
+        phone,
+        password,
+      });
+      const newCaterer = {
+        id: Caterer.id,
+        name: Caterer.name,
+        email: Caterer.email,
+        phone: Caterer.phone,
+        password: Caterer.password,
+      };
+      return res.status(201).send({
+        message: 'sign successful',
+        newCaterer,
+      });
+    } catch (err) {
+      res.status(500).send({
+        message: err.message,
+      });
+    }
   }
 
   /**
@@ -24,13 +40,29 @@ export default class CaterersController {
     * @param {object} res
     * @return {object} caterer logged in
     */
-  static login(req, res) {
-    db.Caterer.findOne({
-      where: {
-        email: req.params.email,
-      },
-    }).then((outcome) => {
-      res.json(outcome);
-    });
+  static async login(req, res) {
+    try {
+      const { email, password } = req.body;
+      const Caterer = await db.caterer.findOne({
+        where: { email } });
+      if (!Caterer) {
+        throw new Error ('Email does not exist');
+      }
+      const verifiedCaterer = {
+        id: Caterer.id,
+        name: Caterer.name,
+        email: Caterer.email,
+        phone: Caterer.phone,
+        password: Caterer.password,
+      }
+      return res.status(200).json({
+        message: 'Login successful',
+        User: verifiedCaterer,
+      });
+    } catch (err) {
+      return res.status(500).json({
+        message: err.message,
+      });
+    }
   }
 }

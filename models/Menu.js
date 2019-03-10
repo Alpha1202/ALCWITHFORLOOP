@@ -1,5 +1,5 @@
-export default (sequelize, DataTypes) => {
-  const Menu = sequelize.define('Menu', {
+module.exports = (sequelize, DataTypes) => {
+  const Menu = sequelize.define('menu', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -15,5 +15,12 @@ export default (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
+  Menu.associate = (models) => {
+    Menu.belongsTo(models.caterer, {
+      foreignKey: 'catererId',
+      constraints: false,
+      as: 'caterer',
+    });
+  };
   return Menu;
 };

@@ -1,4 +1,4 @@
-export default (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   const Order = sequelize.define('order', {
     id: {
       type: DataTypes.INTEGER,
@@ -22,7 +22,21 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       default: 0,
     },
+    catererId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   });
-
+  Order.associate = (models) => {
+    Order.belongsTo(models.caterer, {
+      foreignKey: 'catererId',
+      constraints: false,
+      as: 'caterer',
+    });
+  };
   return Order;
 };

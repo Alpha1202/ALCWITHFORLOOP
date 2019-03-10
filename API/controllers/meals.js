@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import db from '../models';
+import db from '../../models';
 
 function validateMeal(meal) {
   const schema = {
@@ -20,11 +20,11 @@ export default class MealsController {
   * @return {object} all meals
   */
   static async getAmeal(req, res) {
-    const meals = await db.meal.findAll({});
-    if (meals === undefined || meals.length === 0) {
+    const Meal = await db.meal.findAll({ where: { catererId: req.caterer.id } });
+    if (Meal === undefined || Meal.length === 0) {
       return res.status(204).send({ message: 'No Meals' });
     }
-    return res.status(200).send(meals);
+    return res.status(200).send(Meal);
   }
 
   /**
@@ -40,8 +40,8 @@ export default class MealsController {
 
       const { name, Description, price, quantity } = req.body;
 
-      const meals = await db.meal.create({ name, Description, price, quantity });
-      return res.status(201).send(meals);
+      const Meal = await db.meal.create({ name, Description, price, quantity, catererId: req.caterer.id });
+      return res.status(201).send(Meal);
     } catch (err) {
       return res.status(500).json({
         message: err.message,
@@ -63,19 +63,18 @@ export default class MealsController {
       }
       const { error } = validateMeal(req.body);
       if (error) return res.status(400).send(error.details[0].message);
-      const mealUpdate = {
-        name: req.body.name ? req.body.name : ameal.name,
-        Description: req.body.Description ? req.body.Description : ameal.Description,
-        price: req.body.price ? req.body.price : ameal.price,
-        quantity: req.body.quantity ? req.body.quantity : ameal.quantity,
+      const UpdatedMeal = {
+        name: req.body.name !== '' ? req.body.name : ameal.name,
+        Description: req.body.Description !== '' ? req.body.Description : ameal.Description,
+        price: req.body.price !== '' ? req.body.price : ameal.price,
+        quantity: req.body.quantity !== '' ? req.body.quantity : ameal.quantity,
       };
-      const { name, Description, price, quantity } = mealUpdate;
+      const { name, Description, price, quantity } = UpdatedMeal;
       await db.meal.update({ name, Description, price, quantity,
       }, { where: { id: req.params.id } });
-      return res.status(200).json({ successful: 'true', message: 'update successful' });
+      return res.status(200).send({ message: 'update successful', UpdatedMeal });
     } catch (err) {
-      return res.status(500).json({
-        successful: 'false',
+      return res.status(500).send({
         message: err.message,
       });
     }
@@ -93,15 +92,10 @@ export default class MealsController {
       if (!ameal) {
         throw new Error(`No meal with ID ${req.params.id}`);
       }
-      await db.meal.destroy({
-        where: {
-          id: req.params.id,
-        },
-      });
-      return res.status(200).json({ successful: 'true', message: 'delete successful' });
+      await db.meal.destroy();
+      return res.status(200).send({ message: 'delete successful' });
     } catch (err) {
-      return res.status(500).json({
-        successful: 'false',
+      return res.status(500).send({
         message: err.message,
       });
     }

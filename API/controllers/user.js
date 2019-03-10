@@ -1,4 +1,4 @@
-import db from '../models';
+import db from '../../models';
 
 export default class UsersController {
   /**
@@ -7,15 +7,25 @@ export default class UsersController {
     * @param {object} res
     * @return {object} a new user
     */
-  static signup(req, res) {
-    db.user.create({
-      name: req.body.name,
-      email: req.body.email,
-      phone: req.body.phone,
-      password: req.body.password,
-    }).then((outcome) => {
-      res.json(outcome);
-    });
+  static async signup(req, res) {
+    try {
+      const { name, email, phone, password } = req.body;
+      const User = await db.user.create({ name, email, phone, password });
+      const newUser = {
+        id: User.id,
+        name: User.name,
+        email: User.email,
+        phone: User.phone,
+        password: User.password,
+      };
+      return res.status(200).send(
+        newUser,
+      );
+    } catch (err) {
+      return res.status(500).send({
+        message: err.message,
+      })
+    }
   }
 
   /**
@@ -24,13 +34,29 @@ export default class UsersController {
     * @param {object} res
     * @return {object} user logged in
     */
-  static login(req, res) {
-    db.user.findOne({
-      where: {
-        email: req.params.email,
-      },
-    }).then((outcome) => {
-      res.json(outcome);
-    });
+  static async login(req, res) {
+    try {
+      const { email, password } = req.body;
+      const User = await db.user.findOne({
+        where: { email } });
+      if (!User) {
+        throw new Error('Email does not exist');
+      }
+      const verifiedUser = {
+        id: User.id,
+        name: User.name,
+        email: User.email,
+        phone: User.phone,
+        password: User.password,
+      };
+      return res.status(200).json({
+        message: 'Login successful',
+        User: verifiedUser,
+      });
+    } catch (err) {
+      return res.status(500).json({
+        message: err.message,
+      });
+    }
   }
 }

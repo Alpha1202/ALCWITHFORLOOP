@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Caterer', {
+    return queryInterface.createTable('meals', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -9,15 +9,19 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
-      email: {
+      Description: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
-      phone: {
-        type: Sequelize.STRING,
+      price: {
+        type: Sequelize.DECIMAL,
+        allowNull: false,
       },
-      password: {
+      quantity: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
@@ -30,6 +34,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Caterer');
+    return queryInterface.dropTable('meals');
   },
 };

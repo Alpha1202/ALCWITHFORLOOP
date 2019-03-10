@@ -1,5 +1,5 @@
-export default (sequelize, DataTypes) => {
-  const User = sequelize.define('user', {
+module.exports = (sequelize, DataTypes) => {
+  const caterer = sequelize.define('caterer', {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -22,8 +22,7 @@ export default (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-    }, 
-});
-  
-  return User;
+    },
+  });
+  return caterer;
 };

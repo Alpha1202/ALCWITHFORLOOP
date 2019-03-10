@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import routes from './routes';
-import db from './models';
+import db from '../models';
 
 const port = process.env.PORT || 3000;
 

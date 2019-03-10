@@ -1,5 +1,5 @@
-export default (sequelize, DataTypes) => {
-  const Caterer = sequelize.define('Caterer', {
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define('user', {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -24,5 +24,15 @@ export default (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
-  return Caterer;
+  User.associate = (models) => {
+    User.hasMany(models.order, {
+      foreignKey: 'userId',
+      constraints: false,
+    });
+    User.hasMany(models.orderItem, {
+      foreignKey: 'userId',
+      constraints: false,
+    });
+  };
+  return User;
 };

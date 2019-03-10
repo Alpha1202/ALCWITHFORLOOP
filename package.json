@@ -1,5 +1,5 @@
 {
-  "name": "apitutorial",
+  "name": "xpreschop",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,6 +8,7 @@
     "start:dev": "nodemon --exec babel-node ./api/server.js",
     "build": "babel server --out-dir dist",
     "test": "nyc mocha --compilers js:@babel/register --recursive API/test/*.spec.js --exit",
+    "createdb": "psql -U postgres -h localhost",
     "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
     "coveralls-coverage": "coveralls < lcov.info",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
@@ -20,7 +21,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "joi": "^14.3.1",
-    "pg": "^7.8.1",
+    "pg": "^7.8.2",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.43.0",
     "sequelize-cli": "^5.4.0"

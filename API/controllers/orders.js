@@ -1,7 +1,4 @@
-import db from '../models';
-import OrderItem from '../models/OrderItem';
-import Meals from '../models/Meals';
-import Menu from '../models/Menu';
+import db from '../../models';
 
 export default class OrdersController {
   /**
@@ -10,10 +7,15 @@ export default class OrdersController {
   * @param {object} res
   * @return {object} all orders
   */
-  static getAll(req, res) {
-    db.order.findAll({}).then((outcome) => {
-      res.json(outcome);
-    });
+  static async getAll(req, res) {
+    try {
+      const Order = await db.order.findAll({ where: { catererId: req.caterer.id } });
+      return res.status(200).send(Order);
+    } catch (err) {
+      return res.status(500).send({
+        message: err.message,
+      });
+    }
   }
 
   /**
@@ -22,15 +24,20 @@ export default class OrdersController {
    * @param {object} res
    * @return {object} created order || all inputs are required
    */
-  static create(req, res) {
-    db.order.create({
-      order: req.body.order,
-      total: req.body.total,
-      address: req.body.address,
-      delivery_status: 0,
-    }).then((outcome) => {
-      res.json(outcome);
-    });
+  static async create(req, res) {
+    try {
+      const Order = await db.order.create({
+        order: req.body.order,
+        total: req.body.total,
+        address: req.body.address,
+        delivery_status: 0,
+      })
+      return res.status(200).send(Order);
+    } catch (err) {
+      return res.status(500).send({
+        message: err.message,
+      })
+    }
   }
 
   /**
@@ -39,16 +46,21 @@ export default class OrdersController {
     * @param {object} res
     * @return {object} updated order
     */
-  static update(req, res) {
-    db.order.update({
-      order: req.body.order,
-    }, {
-      where: {
-        id: req.params.id,
-      },
-    }).then((outcome) => {
-      res.send({ successful: 'true', message: 'update successful' });
-    });
+  static async update(req, res) {
+    try {
+      const Order = await db.order.update({
+        order: req.body.order,
+      }, {
+        where: {
+          id: req.params.id,
+        } })
+      return res.send(Order);
+    }
+    catch (err) {
+      return res.status(500).send({
+        message: err.message,
+      })
+    }
   }
 
   /**
@@ -57,13 +69,17 @@ export default class OrdersController {
     * @param {object} res
     * @return {object} deleted order || order not found
     */
-  static delete(req, res) {
-    db.order.destroy({
-      where: {
-        id: req.params.id,
-      },
-    }).then((outcome) => {
-      res.send({ successful: 'true', message: 'delete successful' });
-    });
+  static async delete(req, res) {
+    try {
+      await db.order.destroy({
+        where: {
+          id: req.params.id,
+        } })
+      return res.status(200).send({ message: 'delete successful' });
+    } catch (err) {
+      return res.status(500).send({
+        message: err.message,
+      })
+    }
   }
 }

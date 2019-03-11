@@ -3,7 +3,7 @@ import CaterersController from '../controllers/caterers';
 
 const caterersRouter = express.Router();
 
-caterersRouter.post('/signup', CaterersController.signup);
-caterersRouter.post('/login', CaterersController.login);
+caterersRouter.post('/auth/signup', CaterersController.signup);
+caterersRouter.post('/auth/login', CaterersController.login);
 
 export default caterersRouter;

@@ -1,12 +1,13 @@
 import express from 'express';
 
 import OrdersController from '../controllers/orders';
+import AuthController from '../controllers/authController';
 
 const ordersRouter = express.Router();
 
-ordersRouter.get('/', OrdersController.getAll);
-ordersRouter.post('/', OrdersController.create);
-ordersRouter.put('/:name', OrdersController.update);
-ordersRouter.delete('/:name', OrdersController.delete);
+ordersRouter.get('/', AuthController.verifyCaterer, OrdersController.getAll);
+ordersRouter.post('/', AuthController.verifyUser, OrdersController.create);
+ordersRouter.put('/:name', AuthController.verifyUser, OrdersController.update);
+ordersRouter.delete('/:name', AuthController.verifyUser, OrdersController.delete);
 
 export default ordersRouter;

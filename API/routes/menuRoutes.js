@@ -1,9 +1,11 @@
 import express from 'express';
 import MenusController from '../controllers/menus';
+import AuthController from '../controllers/authController';
 
 const menusRouter = express.Router();
 
-menusRouter.get('/', MenusController.getAll);
-menusRouter.post('/', MenusController.create);
+menusRouter.get('/', AuthController.verifyUser, MenusController.getAll);
+menusRouter.get('/caterer', AuthController.verifyCaterer, MenusController.getAmenu);
+menusRouter.post('/', AuthController.verifyCaterer, MenusController.create);
 
 export default menusRouter;
